@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${bebasNeue.variable}`}>
-      <body className="min-h-screen bg-majestic-primary text-majestic-text font-poppins">
+      <body className={`${poppins.className} min-h-screen bg-majestic-primary text-majestic-text antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

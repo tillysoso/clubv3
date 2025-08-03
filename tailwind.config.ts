@@ -78,8 +78,8 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-        bebas: ["Bebas Neue", "cursive"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        bebas: ["var(--font-bebas)", "cursive"],
       },
       fontWeight: {
         header: "200",
