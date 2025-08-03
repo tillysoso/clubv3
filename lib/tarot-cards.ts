@@ -1,139 +1,234 @@
 export interface TarotCard {
   id: string
   name: string
-  suit: string
-  number?: number
+  slug: string
+  number: string
   arcana: "major" | "minor"
-  upright: string[]
-  reversed: string[]
-  description: string
-  image: string
-  keywords: string[]
+  suit?: "cups" | "wands" | "swords" | "pentacles"
   element?: string
+  keywords: string[]
+  description: string
+  uprightMeaning: string
+  reversedMeaning: string
+  symbolism: string[]
+  numerology?: string
   astrology?: string
+  yesNo: "yes" | "no" | "maybe"
 }
 
-export const suits = {
+export interface Suit {
+  name: string
+  element: string
+  description: string
+  keywords: string[]
+}
+
+export const suits: Record<string, Suit> = {
   cups: {
     name: "Cups",
     element: "Water",
-    keywords: ["emotions", "relationships", "intuition", "spirituality"],
+    description: "Represents emotions, relationships, love, and spirituality. Connected to the heart and intuition.",
+    keywords: ["emotions", "love", "relationships", "intuition", "spirituality", "healing"],
   },
   wands: {
     name: "Wands",
     element: "Fire",
-    keywords: ["passion", "creativity", "energy", "ambition"],
+    description: "Represents passion, creativity, career, and personal growth. Connected to action and inspiration.",
+    keywords: ["passion", "creativity", "career", "growth", "inspiration", "energy"],
   },
   swords: {
     name: "Swords",
     element: "Air",
-    keywords: ["thoughts", "communication", "conflict", "intellect"],
+    description:
+      "Represents thoughts, communication, conflict, and mental challenges. Connected to the mind and intellect.",
+    keywords: ["thoughts", "communication", "conflict", "challenges", "intellect", "truth"],
   },
   pentacles: {
     name: "Pentacles",
     element: "Earth",
-    keywords: ["material", "practical", "resources", "stability"],
+    description:
+      "Represents material matters, money, career, and physical manifestation. Connected to the material world.",
+    keywords: ["money", "career", "material", "manifestation", "stability", "resources"],
   },
 }
 
-export const majorArcana: TarotCard[] = [
+export const tarotCards: TarotCard[] = [
+  // Major Arcana
   {
-    id: "fool",
+    id: "0",
     name: "The Fool",
-    suit: "major",
-    number: 0,
+    slug: "the-fool",
+    number: "0",
     arcana: "major",
-    upright: ["New beginnings", "Innocence", "Spontaneity", "Free spirit"],
-    reversed: ["Recklessness", "Risk-taking", "Foolishness", "Lack of direction"],
+    element: "Air",
+    keywords: ["new beginnings", "innocence", "spontaneity", "free spirit"],
     description:
       "The Fool represents new beginnings, having faith in the future, being inexperienced, not knowing what to expect, having beginner's luck, improvisation and believing in the universe.",
-    image: "/placeholder.svg?height=400&width=300&text=The+Fool",
-    keywords: ["beginnings", "innocence", "spontaneity", "free spirit"],
-    element: "Air",
-    astrology: "Uranus",
+    uprightMeaning: "New beginnings, optimism, trust in life",
+    reversedMeaning: "Recklessness, taken advantage of, inconsideration",
+    symbolism: ["White rose of purity", "Small bag of memories", "Loyal dog companion", "Mountain peaks of challenges"],
+    numerology: "Zero represents infinite potential and the beginning of a spiritual journey",
+    astrology: "Associated with Uranus and the element of Air",
+    yesNo: "yes",
   },
   {
-    id: "magician",
+    id: "1",
     name: "The Magician",
-    suit: "major",
-    number: 1,
+    slug: "the-magician",
+    number: "I",
     arcana: "major",
-    upright: ["Manifestation", "Resourcefulness", "Power", "Inspired action"],
-    reversed: ["Manipulation", "Poor planning", "Untapped talents", "Lack of energy"],
-    description:
-      "The Magician is about making higher and better use of one's spiritual and material resources. The Magician is the bridge between the world of the spirit and the world of humanity.",
-    image: "/placeholder.svg?height=400&width=300&text=The+Magician",
-    keywords: ["manifestation", "resourcefulness", "power", "inspired action"],
     element: "Air",
-    astrology: "Mercury",
+    keywords: ["manifestation", "resourcefulness", "power", "inspired action"],
+    description:
+      "The Magician is a powerful card representing manifestation, resourcefulness, and having the tools you need to achieve your goals.",
+    uprightMeaning: "Manifestation, resourcefulness, power, inspired action",
+    reversedMeaning: "Manipulation, poor planning, untapped talents",
+    symbolism: [
+      "Infinity symbol above head",
+      "Four suit symbols on table",
+      "White robe of purity",
+      "Red cloak of worldly experience",
+    ],
+    numerology: "One represents new beginnings and individual will",
+    astrology: "Associated with Mercury",
+    yesNo: "yes",
   },
   {
-    id: "high-priestess",
+    id: "2",
     name: "The High Priestess",
-    suit: "major",
-    number: 2,
+    slug: "the-high-priestess",
+    number: "II",
     arcana: "major",
-    upright: ["Intuition", "Sacred knowledge", "Divine feminine", "Subconscious mind"],
-    reversed: ["Secrets", "Disconnected from intuition", "Withdrawal", "Silence"],
-    description:
-      "The High Priestess is a card of mystery, stillness and passivity. This card suggests that it is time to retreat and reflect upon the situation and trust your inner instincts to guide you through it.",
-    image: "/placeholder.svg?height=400&width=300&text=High+Priestess",
-    keywords: ["intuition", "sacred knowledge", "divine feminine", "subconscious"],
     element: "Water",
-    astrology: "Moon",
+    keywords: ["intuition", "sacred knowledge", "divine feminine", "the subconscious mind"],
+    description:
+      "The High Priestess represents intuition, sacred knowledge, divine feminine, and the subconscious mind.",
+    uprightMeaning: "Intuition, sacred knowledge, divine feminine, the subconscious mind",
+    reversedMeaning: "Secrets, disconnected from intuition, withdrawal and silence",
+    symbolism: [
+      "Pomegranates of feminine fertility",
+      "Veil of mysteries",
+      "Crescent moon at feet",
+      "Pillars of duality",
+    ],
+    numerology: "Two represents duality and balance",
+    astrology: "Associated with the Moon",
+    yesNo: "maybe",
   },
-]
-
-export const minorArcana: TarotCard[] = [
+  // Minor Arcana - Cups
   {
-    id: "ace-cups",
+    id: "cups-ace",
     name: "Ace of Cups",
-    suit: "cups",
-    number: 1,
+    slug: "ace-of-cups",
+    number: "Ace",
     arcana: "minor",
-    upright: ["Love", "New relationships", "Compassion", "Creativity"],
-    reversed: ["Self-love", "Intuition", "Repressed emotions", "Emptiness"],
-    description:
-      "The Ace of Cups represents new beginnings in love, relationships, and emotions. It signifies the start of a new emotional journey.",
-    image: "/placeholder.svg?height=400&width=300&text=Ace+of+Cups",
-    keywords: ["love", "new relationships", "compassion", "creativity"],
+    suit: "cups",
     element: "Water",
+    keywords: ["love", "new relationships", "compassion", "creativity"],
+    description: "The Ace of Cups represents new love, emotional beginnings, compassion, and creativity.",
+    uprightMeaning: "Love, new relationships, compassion, creativity",
+    reversedMeaning: "Self-love, intuition, repressed emotions",
+    symbolism: ["Overflowing cup", "Hand from cloud", "Dove of peace", "Lotus blossoms"],
+    numerology: "Ace represents new beginnings and potential",
+    astrology: "Water signs: Cancer, Scorpio, Pisces",
+    yesNo: "yes",
   },
   {
-    id: "ace-wands",
-    name: "Ace of Wands",
-    suit: "wands",
-    number: 1,
+    id: "cups-two",
+    name: "Two of Cups",
+    slug: "two-of-cups",
+    number: "Two",
     arcana: "minor",
-    upright: ["Inspiration", "New opportunities", "Growth", "Potential"],
-    reversed: ["Lack of energy", "Lack of passion", "Boredom", "Missed opportunities"],
-    description:
-      "The Ace of Wands represents inspiration, new opportunities, and growth. It's a sign that you are ready to start something new.",
-    image: "/placeholder.svg?height=400&width=300&text=Ace+of+Wands",
-    keywords: ["inspiration", "new opportunities", "growth", "potential"],
+    suit: "cups",
+    element: "Water",
+    keywords: ["unified love", "partnership", "mutual attraction", "relationships"],
+    description: "The Two of Cups represents unified love, partnership, and mutual attraction in relationships.",
+    uprightMeaning: "Unified love, partnership, mutual attraction, relationships",
+    reversedMeaning: "Self-love, break-ups, disharmony, distrust",
+    symbolism: [
+      "Two figures exchanging cups",
+      "Caduceus of healing",
+      "Lion head of passion",
+      "Wings of spiritual connection",
+    ],
+    numerology: "Two represents partnership and cooperation",
+    astrology: "Venus in Cancer",
+    yesNo: "yes",
+  },
+  // Minor Arcana - Wands
+  {
+    id: "wands-ace",
+    name: "Ace of Wands",
+    slug: "ace-of-wands",
+    number: "Ace",
+    arcana: "minor",
+    suit: "wands",
     element: "Fire",
+    keywords: ["inspiration", "new opportunities", "growth", "potential"],
+    description: "The Ace of Wands represents inspiration, new opportunities, and creative potential.",
+    uprightMeaning: "Inspiration, new opportunities, growth, potential",
+    reversedMeaning: "Lack of energy, lack of passion, boredom",
+    symbolism: ["Hand emerging from cloud", "Sprouting leaves", "Castle in distance", "Mountains of challenges"],
+    numerology: "Ace represents new beginnings and raw potential",
+    astrology: "Fire signs: Aries, Leo, Sagittarius",
+    yesNo: "yes",
+  },
+  // Minor Arcana - Swords
+  {
+    id: "swords-ace",
+    name: "Ace of Swords",
+    slug: "ace-of-swords",
+    number: "Ace",
+    arcana: "minor",
+    suit: "swords",
+    element: "Air",
+    keywords: ["breakthrough", "clarity", "sharp mind", "new ideas"],
+    description: "The Ace of Swords represents breakthrough, mental clarity, and new ideas.",
+    uprightMeaning: "Breakthrough, clarity, sharp mind, new ideas",
+    reversedMeaning: "Confusion, brutality, chaos",
+    symbolism: ["Sword piercing crown", "Hand from cloud", "Mountains in background", "Olive and palm branches"],
+    numerology: "Ace represents new mental beginnings",
+    astrology: "Air signs: Gemini, Libra, Aquarius",
+    yesNo: "yes",
+  },
+  // Minor Arcana - Pentacles
+  {
+    id: "pentacles-ace",
+    name: "Ace of Pentacles",
+    slug: "ace-of-pentacles",
+    number: "Ace",
+    arcana: "minor",
+    suit: "pentacles",
+    element: "Earth",
+    keywords: ["manifestation", "new financial opportunity", "abundance", "prosperity"],
+    description: "The Ace of Pentacles represents manifestation, new financial opportunities, and material abundance.",
+    uprightMeaning: "Manifestation, new financial opportunity, abundance, prosperity",
+    reversedMeaning: "Lost opportunity, lack of planning, poor financial decisions",
+    symbolism: ["Hand holding pentacle", "Garden of abundance", "Archway of opportunity", "Mountain of achievement"],
+    numerology: "Ace represents new material beginnings",
+    astrology: "Earth signs: Taurus, Virgo, Capricorn",
+    yesNo: "yes",
   },
 ]
 
-export const allCards: TarotCard[] = [...majorArcana, ...minorArcana]
-
-export function getRandomCard(): TarotCard {
-  const randomIndex = Math.floor(Math.random() * allCards.length)
-  return allCards[randomIndex]
+export function getCardBySlug(slug: string): TarotCard | undefined {
+  return tarotCards.find((card) => card.slug === slug)
 }
 
-export function getCardById(id: string): TarotCard | undefined {
-  return allCards.find((card) => card.id === id)
+export function getCardsByArcana(arcana: "major" | "minor"): TarotCard[] {
+  return tarotCards.filter((card) => card.arcana === arcana)
 }
 
-export function getCardsBysuit(suit: string): TarotCard[] {
-  return allCards.filter((card) => card.suit === suit)
+export function getCardsBySuit(suit: string): TarotCard[] {
+  return tarotCards.filter((card) => card.suit === suit)
 }
 
-export function getMajorArcana(): TarotCard[] {
-  return majorArcana
-}
-
-export function getMinorArcana(): TarotCard[] {
-  return minorArcana
+export function searchCards(query: string): TarotCard[] {
+  const lowercaseQuery = query.toLowerCase()
+  return tarotCards.filter(
+    (card) =>
+      card.name.toLowerCase().includes(lowercaseQuery) ||
+      card.keywords.some((keyword) => keyword.toLowerCase().includes(lowercaseQuery)) ||
+      card.description.toLowerCase().includes(lowercaseQuery),
+  )
 }
