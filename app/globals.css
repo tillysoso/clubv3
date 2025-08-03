@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Majestic Tarot Brand Colors */
+  --majestic-primary: #2c194f;
+  --majestic-text: #f9edd6;
+  --majestic-hover: #b3ffac;
+  --majestic-accent-red: #dd4444;
+  --majestic-accent-purple: #7d3fff;
+
+  /* Font Variables */
+  --font-seaweed: "Seaweed Script", cursive;
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-majestic-primary text-majestic-text font-poppins;
+    font-size: 12px;
+  }
+
+  /* Typography System - Exact Style Guide Match */
+  .text-logo {
+    font-family: var(--font-seaweed);
+    @apply text-majestic-text;
+  }
+
+  .text-h1 {
+    font-family: var(--font-bebas);
+    font-weight: 200;
+    font-size: 36px;
+    @apply text-majestic-text;
+  }
+
+  .text-h2 {
+    font-family: var(--font-bebas);
+    font-weight: 200;
+    font-size: 30px;
+    @apply text-majestic-text;
+  }
+
+  .text-h3 {
+    font-family: var(--font-bebas);
+    font-weight: 200;
+    font-size: 24px;
+    @apply text-majestic-text;
+  }
+
+  .text-h4 {
+    font-family: var(--font-bebas);
+    font-weight: 200;
+    font-size: 20px;
+    @apply text-majestic-text;
+  }
+
+  .text-h5 {
+    font-family: var(--font-bebas);
+    font-weight: 200;
+    font-size: 18px;
+    @apply text-majestic-text;
+  }
+
+  .text-h6 {
+    font-family: var(--font-bebas);
+    font-weight: 200;
+    font-size: 14px;
+    @apply text-majestic-text;
+  }
+
+  .text-p {
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    font-size: 12px;
+    @apply text-majestic-text;
+  }
+
+  /* Standard HTML Elements */
+  h1 {
+    @apply text-h1;
+  }
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+  h4 {
+    @apply text-h4;
+  }
+  h5 {
+    @apply text-h5;
+  }
+  h6 {
+    @apply text-h6;
+  }
+  p {
+    @apply text-p;
+  }
+}
+
+@layer components {
+  /* Glass Morphism Effect */
+  .glass-card {
+    @apply bg-majestic-primary/80 backdrop-blur-md border border-majestic-text/20;
+  }
+
+  /* Sleek Input Style */
+  .sleek-input {
+    @apply bg-majestic-primary/50 border border-majestic-text/30 text-majestic-text placeholder:text-majestic-text/60 focus:border-majestic-hover focus:ring-1 focus:ring-majestic-hover;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-majestic-accent-purple text-majestic-text hover:bg-majestic-hover hover:text-majestic-primary transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-majestic-accent-red text-majestic-text hover:bg-majestic-hover hover:text-majestic-primary transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-majestic-text hover:bg-majestic-hover hover:text-majestic-primary transition-all duration-300;
+  }
+}
+
+/* Card Animations */
+@keyframes card-deal {
+  0% {
+    transform: translateY(-100px) rotate(-10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(var(--card-rotation, 0deg));
+    opacity: 1;
+  }
+}
+
+@keyframes card-flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(179, 255, 172, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(179, 255, 172, 0.8);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-star {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes rotate-star {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-star {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparkle-star {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce-horizontal {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes swipe-left {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes swipe-right {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.card-deal {
+  animation: card-deal 0.8s ease-out forwards;
+}
+
+.card-flip {
+  animation: card-flip 0.6s ease-in-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-pulse-star {
+  animation: pulse-star 2s ease-in-out infinite;
+}
+
+.animate-rotate-star {
+  animation: rotate-star 4s linear infinite;
+}
+
+.animate-float-star {
+  animation: float-star 3s ease-in-out infinite;
+}
+
+.animate-sparkle-star {
+  animation: sparkle-star 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-horizontal {
+  animation: bounce-horizontal 2s ease-in-out infinite;
+}
+
+.animate-swipe-left {
+  animation: swipe-left 0.3s ease-out;
+}
+
+.animate-swipe-right {
+  animation: swipe-right 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in;
+}
+
+/* 3D Transform Utilities */
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .text-h1 {
+    font-size: 28px;
+  }
+  .text-h2 {
+    font-size: 24px;
+  }
+  .text-h3 {
+    font-size: 20px;
+  }
+  .text-h4 {
+    font-size: 18px;
+  }
+  .text-h5 {
+    font-size: 16px;
+  }
+  .text-h6 {
+    font-size: 12px;
+  }
+  .text-p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-h1 {
+    font-size: 24px;
+  }
+  .text-h2 {
+    font-size: 20px;
+  }
+  .text-h3 {
+    font-size: 18px;
+  }
+  .text-h4 {
+    font-size: 16px;
+  }
+  .text-h5 {
+    font-size: 14px;
+  }
+  .text-h6 {
+    font-size: 12px;
+  }
+  .text-p {
+    font-size: 10px;
+  }
+}
