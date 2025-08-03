@@ -1,31 +1,46 @@
 {
   "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "gatsby": "^1.9.247",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "punycode": "^2.3.1",
-    "react-helmet": "^5.2.0",
-    "styled-components": "^3.3.3"
-  },
+  "description": "Gatsby default starter",
   "keywords": [
     "gatsby"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
   "license": "MIT",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "prettier": "^1.12.0"
+  "dependencies": {
+    "@gatsbyjs/reach-router": "latest",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "gatsby": "^1.9.247",
+    "gatsby-link": "latest",
+    "gatsby-plugin-react-helmet": "^2.0.10",
+    "lucide-react": "^0.454.0",
+    "next": "15.2.4",
+    "prop-types": "latest",
+    "punycode": "^2.3.1",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-helmet": "latest",
+    "styled-components": "latest",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8.5",
+    "prettier": "^1.12.0",
+    "typescript": "^5"
   }
 }

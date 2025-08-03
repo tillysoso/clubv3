@@ -6,20 +6,20 @@ For an overview of the project structure please refer to the [Gatsby documentati
 ## Install
 
 Make sure that you have the Gatsby CLI program installed:
-```sh
+\`\`\`sh
 npm install --global gatsby-cli
-```
+\`\`\`
 
 And run from your CLI:
-```sh
+\`\`\`sh
 gatsby new gatsby-example-site
-```
+\`\`\`
 
 Then you can run it by:
-```sh
+\`\`\`sh
 cd gatsby-example-site
 gatsby develop
-```
+\`\`\`
 
 ## Deploy
 
